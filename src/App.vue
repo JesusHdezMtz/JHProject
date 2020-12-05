@@ -6,7 +6,7 @@
   <v-main>
 
     <!-- Provides the application the proper gutter -->
-    <v-container fluid>
+    <v-container class="background-color"  fluid>
 
       <!-- If using vue-router -->
       <router-view></router-view>
@@ -26,5 +26,14 @@ export default {
   }
 }
 </script>
+<style scoped>
+.container{
+  padding: 0px;
+  margin: 0px;
+}
+.background-color{
+  background-color: #EBEBEB;
+}
+</style>
 
 

@@ -3,7 +3,7 @@
     <v-app-bar app color="#F8F8F8" flat elevation="3" v-show="!isMobile()">
         <v-tabs left color="grey" hide-slider>
           <v-tab class="font-size-jesus" @click="openView('Home')">
-            <v-icon class="pr-1" size="30" color="blue"
+            <v-icon class="pr-1" size="30" color="#2467b5"
               >mdi-account-box-outline</v-icon
             >
             JESÚS HERNÁNDEZ
@@ -12,7 +12,7 @@
 
       <v-tabs right color="grey" hide-slider>
         <v-tab v-for="(item, i) in links" :key="i" @click="openView(item.link)">
-          <v-icon class="pr-2" size="18" color="blue">{{ item.icon }}</v-icon>
+          <v-icon class="pr-2" size="18" color="#2467b5">{{ item.icon }}</v-icon>
           {{ item.name }}
         </v-tab>
       </v-tabs>
@@ -23,7 +23,7 @@
         <router-link :to="{ name: 'Home' }" class="text-decoration-none">
           <v-tabs background-color="#F8F8F8" left color="grey" hide-slider>
             <v-tab class="pl-0 font-size-jesus-xs">
-              <v-icon class="pr-1" size="30" color="blue"
+              <v-icon class="pr-1" size="30" color="#2467b5"
                 >mdi-account-box-outline</v-icon
               >
               JESÚS HERNÁNDEZ
