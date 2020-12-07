@@ -23,7 +23,7 @@
         <router-link :to="{ name: 'Home' }" class="text-decoration-none">
           <v-tabs background-color="#F8F8F8" left color="grey" hide-slider>
             <v-tab class="pl-0 font-size-jesus-xs">
-              <v-icon class="pr-1" size="30" color="#2467b5"
+              <v-icon class="pr-1" size="30" color="#FF6700"
                 >mdi-account-box-outline</v-icon
               >
               JESÚS HERNÁNDEZ
@@ -72,17 +72,17 @@ export default {
         icon: "mdi-home",
       },
       {
-        link: "About",
+        link: "Profile",
         name: "PERFIL",
         icon: "mdi-account",
       },
       {
-        link: "About",
+        link: "Briefcase",
         name: "PORTAFOLIO",
         icon: "mdi-folder-multiple-image",
       },
       {
-        link: "About",
+        link: "Contact",
         name: "CONTACTO",
         icon: "mdi-email-outline",
       },
@@ -104,6 +104,7 @@ export default {
 <style scoped>
 .font-size-jesus {
   font-size: 23px;
+  
 }
 .font-size-jesus-xs {
   font-size: 18px;
