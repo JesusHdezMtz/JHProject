@@ -1,5 +1,5 @@
 <template>
-  <div class=" background_home">
+  <div class="background_home">
     <v-card color="rgb(235, 235, 235)" flat :height="height"></v-card>
     <v-row class="mx-0">
       <v-col cols="12" xs="12" sm="6" md="6" lg="6" xl="6">
@@ -7,10 +7,9 @@
           <h1 class="color-blue font-tile">Ingeniero De Software</h1>
           <v-col cols="12" class="pa-0 ma-0">
             <h1 class="font-size-title font-tile color-orange">
-            JESÚS HERNÁNDEZ
-          </h1>
+              JESÚS HERNÁNDEZ
+            </h1>
           </v-col>
-          
 
           <h3 class="text-justify">
             Egresado de la licenciatura de ingeniería de software de la
@@ -38,52 +37,57 @@
         </v-img>
       </v-col>
     </v-row>
-    <div class="text-center pa-15">
+    <div class="text-center py-16">
       <v-icon class="pt-10" size="50" color="#004e98"
         >mdi-account-group
       </v-icon>
 
-      <h1 class="font__main-alter">TECNOLOGÍAS</h1>
-      <v-card
-        
-        flat
-        height="3"
-        color="#004e98"
-        width="300"
-        class="mx-auto"
-      >
-        <h3 class="pt-1">Explora las herramientas de trabajo</h3></v-card
-      >
+      <h1 class="font__main-alter">PROYECTOS</h1>
+      <v-card flat height="3" color="#004e98" width="300" class="mx-auto">
+      </v-card>
+      <h3 class="pt-1">Explora los ultimos proyectos realizados</h3>
     </div>
     <div>
-      <div class="d-flex align-center text-center justify-center">
-      </div>
+      <div class="d-flex align-center text-center justify-center"></div>
       <v-row class="mx-0 mb-15">
         <v-col
-          v-for="(item, index) in cards"
+          v-for="(itemCard, index) in itemCards"
           :key="index"
           cols="12"
-          sm="4"
+          sm="12"
           md="4"
           lg="4"
           xs="12"
           v-intersect="{
-          handler: onIntersect,
-          options: {
-            threshold: [0, 0.5, 1.0],
-          },
-        }"
+            handler: onIntersect,
+            options: {
+              threshold: [0, 0.5, 1.0],
+            },
+          }"
         >
           <transition name="slide-fade">
-            <v-card class="mx-auto" elevation="5" max-width="90%" height="100%" v-show="isIntersecting">
-              <v-img
-                :src="item.img"
-                height="200px"
-              ></v-img>
+            <v-card
+              elevation="10"
+              max-width="400"
+              class="mx-auto"
+              v-show="isIntersecting"
+            >
+              <v-carousel
+              continuous
+                cycle
+                hide-delimiter-background
+                height="195"
+              >
+                <v-carousel-item
+                  v-for="(imgCarousel, i) in itemCard.itemsCarousel"
+                  eager
+                  :key="i"
+                  :src="imgCarousel.src"
+                ></v-carousel-item>
+              </v-carousel>
+              <v-card-title>{{ itemCard.title }}</v-card-title>
 
-              <v-card-title>{{item.title}}</v-card-title>
-
-              <v-card-subtitle>{{item.subtitle}}</v-card-subtitle>
+              <v-card-subtitle>{{ itemCard.subtitle }}</v-card-subtitle>
 
               <v-card-actions>
                 <v-btn color="orange lighten-2" text> Explore </v-btn>
@@ -120,39 +124,77 @@
 </template>
 
 <script>
+import img1 from "../assets/projects/arcup/img1.png";
+import img2 from "../assets/projects/arcup/img2.png";
+import img3 from "../assets/projects/arcup/img3.png";
+import img4 from "../assets/projects/arcup/img4.png";
+
 export default {
   data: () => ({
     isIntersecting: false,
     show: false,
-    cards: [
+    itemCards: [
       {
-        img: "https://miro.medium.com/max/2430/1*ACR0gj0wbx91V_xgURifWg.png",
-        title: "Vue Js",
-        subtitle: "Framework de JavaScript de código abierto para la construcción de interfaces de usuario y aplicaciones de una sola página.",
-        icon: "mdi-home",
-        txt: "",
+        title: "Arcup",
+        subtitle: "Empresa de Desarrollo de Software",
+        itemsCarousel: [
+          {
+            src: img1,
+          },
+          {
+            src: img2,
+          },
+          {
+            src: img3,
+          },
+          {
+            src: img4,
+          },
+        ],
       },
       {
-        img: "https://miro.medium.com/max/2264/1*8o5BkjShcL3f9fqL3zwLaA.png",
-        title: "Vuetify",
-        subtitle: "Vuetify es un framework que combina la potencia del popular VueJs con la estética de Material Design.",
-        icon: "mdi-home",
-        txt: "",
+        title: "Arcup",
+        subtitle: "Empresa de Desarrollo de Software",
+        itemsCarousel: [
+           {
+            src: img1,
+          },
+          {
+            src: img2,
+          },
+          {
+            src: img3,
+          },
+          {
+            src: img4,
+          },
+        ],
       },
       {
-        img: "https://www.psdahtmlpasoapaso.com/blog/wp-content/uploads/2013/04/html5css3.png",
-        title: "HTML y CSS",
-        subtitle: "HTML es un lenguaje de marcado que se utiliza para el desarrollo de páginas de Internet. CSS es lo que se denomina lenguaje de hojas de estilo en cascada.",
-        icon: "mdi-home",
-        txt: "",
+        title: "Arcup",
+        subtitle: "Empresa de Desarrollo de Software",
+        itemsCarousel: [
+           {
+            src: img1,
+          },
+          {
+            src: img2,
+          },
+          {
+            src: img3,
+          },
+          {
+            src: img4,
+          },
+        ],
       },
     ],
   }),
+
   methods: {
     onIntersect(entries, observer) {
-      if(!this.isIntersecting){
-         this.isIntersecting = entries[0].intersectionRatio >= 0.5;
-         
+      if (!this.isIntersecting) {
+        this.isIntersecting = entries[0].intersectionRatio >= 0.5;
       }
     },
   },
