@@ -1,17 +1,19 @@
 <template>
-  <v-footer color="#120d3b" padless>
+  <div id="footer">
+      <v-footer color="#120d3b" padless>
     <v-row justify="center" no-gutters>
       <v-btn
         v-for="(item, i) in links"
         :key="i"
-        @click="openView(item.link)"
         color="white"
         text
         rounded
         class="my-2"
       >
+       <a :href="item.link" class="text-decoration-none white--text">
         <v-icon class="pr-2" size="18" color="#FF6700">{{ item.icon }}</v-icon>
         {{ item.name }}
+        </a>
       </v-btn>
       <v-col
         class="background-footer-color-secondary py-4 px-0 text-center white--text"
@@ -29,47 +31,41 @@
       </v-col>
     </v-row>
   </v-footer>
+    </div>
 </template>
 
 <script>
+var SmoothScroll = require('smooth-scroll');
+const scroll = new SmoothScroll('a[href*="#"]', {
+  speed: 800,
+  speedAsDuration: true
+});
+
 export default {
   data: () => ({
     links: [
       {
-        link: "Home",
+        link: "#home",
         name: "INICIO",
         icon: "mdi-home",
       },
       {
-        link: "Profile",
+        link: "#profile",
         name: "PERFIL",
         icon: "mdi-account",
       },
       {
-        link: "Briefcase",
+        link: "#briefcase",
         name: "PORTAFOLIO",
         icon: "mdi-folder-multiple-image",
       },
       {
-        link: "Contact",
+        link: "#contact",
         name: "CONTACTO",
         icon: "mdi-email-outline",
       },
     ],
   }),
-  methods: {
-    openView: function (view) {
-      this.$router.push({ name: view }).catch(() => {});
-    },
-  },
+
 };
 </script>
-
-<style>
-.background-footer-color-secondary {
-  background-color: #120d3b;
-}
-.font-size-footer {
-  font-size: 14px;
-}
-</style>
