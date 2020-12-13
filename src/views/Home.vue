@@ -30,9 +30,6 @@ export default {
   color: rgb(163, 163, 163);
 }
 .background_home {
-  background-image: url("../assets/view-home/image-2.png");
-  background-size: cover;
-  background-position-x: center;
   background: linear-gradient(
     to bottom,
     rgb(235, 235, 235) 0%,

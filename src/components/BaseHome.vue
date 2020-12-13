@@ -34,9 +34,13 @@
           </v-img>
         </v-col>
       </v-row>
+      <div class="heigt"></div>
     </div>
 </template>
 <style  scoped>
+.heigt{
+  height: 250px;
+}
 @font-face {
   font-family: MazzardH-SemiBold;
   src: url("../assets/font/MazzardH-SemiBold.ttf");
