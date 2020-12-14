@@ -117,7 +117,7 @@ export default {
         description:
           "Arcup es una empresa emergente de desarrollo de software basada en las nuevas " +
           "tendencias tecnológicas. Utilizando procesos metódicos y diseños modernos, planea colocarse" +
-          " como una empresa referente en el area de la informática.",
+          " como una empresa referente en el área de la informática.",
         link: "https://arcup.com.mx/"
       },
     ],
@@ -151,7 +151,6 @@ export default {
   border-width: 5px;
 }
 .background-color {
-  background-color: #f5f5f5;
   background-image: url("../assets/view-home/image-3.png");
   background-size: cover;
 }
